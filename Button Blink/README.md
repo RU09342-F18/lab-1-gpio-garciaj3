@@ -1,4 +1,6 @@
-## Preview
+# Button Blink
+
+## Details
 This folder contains two files that shows how to button blink one LED from an MSP430G2553 and MSP430F5529 development board. The MSP430G2553 c.file is named switch1.c and the MSP430F5529 c.file is named switch2.c. In these files, each microcontroller has it specific pins that output the signals to turn on and off their LED using a switch, and are set at different delay cycles to compansate for the switch debouncing effect.
 
 ### MSP430G2553
