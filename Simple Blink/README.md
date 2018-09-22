@@ -8,6 +8,8 @@ This folder contains two files that shows how to blink one LED from an MSP430G25
 ### MSP430FR2311
 **Description** : The purpose of this lab is to take the MSP430F5529 and make the pin P4.7 LED blink on and off at a visible rate. The second LED is tie with a special pin called "P4.7". This pin must be set as an output pin by setting a bit in a special register called "P4DIR". Setting the first bit from pin "P4DIR" as a value of 1 lets it become an output and setting first bit from the pin as a bit value of 0 lets become an input.
 
+**Regard Unlocking Pins** : In the FR series boards, the GPIO pins must be unlock using a specfic linecode contained in the file. This line code helps from disconnecting the output pins and with power consumption. 
+
 ### Watchdog Timers
 Both are set to have their watchdog timers off so that the controllers do not reset everytime when they're looping. In fact, watchdog timers keeps track of any abnormal behavior from the program. If the program fails and it "crashes," then the watchdog timer will trigger a reset and force the program back to the beginning. This needs to be disable so that the function of the code works.
 
