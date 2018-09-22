@@ -11,3 +11,5 @@ This folder contains two files that shows how to blink one LED from an MSP430G25
 ### Watchdog Timers
 Both are set to have their watchdog timers off so that the controllers do not reset everytime when they're looping. In fact, watchdog timers keeps track of any abnormal behavior from the program. If the program fails and it "crashes," then the watchdog timer will trigger a reset and force the program back to the beginning. This needs to be disable so that the function of the code works.
 
+### While Loop
+The loop infinitely makes the LED blink until the program is stopped in the debugging. The loop contains the pin value of the LED and a XOR logic to toggle the pin value "high" and "low" or "ON" or "OFF". 
