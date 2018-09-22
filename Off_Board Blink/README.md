@@ -11,4 +11,6 @@ Both are set to have their watchdog timers off so that the controllers do not re
 ### While Loop
 Both controllers contain a while loop to infinitely make the LED blink after running the code. The loop contains the pin value of the LED and a XOR logic to toggle the pin value "high" and "low" or "ON" or "OFF".
 
+## GIF
+**Breadboard with the MSP430G2553**
 ![](gif_1537582092.gif)
