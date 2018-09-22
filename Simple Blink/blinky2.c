@@ -8,9 +8,9 @@
  *
  * Description: The purpose of this lab is to take the MSP430FR2311 and make the
  * a LED blink on and off at a visible rate. This LED is tie with a
- * special pin called "P1.0". This pin must be set as an output pin by setting
- * a bit in a special register called "P1DIR". Setting the first bit
- * from pin "P1DIR" as a value of 1 lets it become an output and setting first
+ * special pin called "P2.0". This pin must be set as an output pin by setting
+ * a bit in a special register called "P2DIR". Setting the first bit
+ * from pin "P2DIR" as a value of 1 lets it become an output and setting first
  * bit from the pin as a bit value of 0 lets it become an input.
  *
  */
@@ -31,15 +31,14 @@
        *
        */
         WDTCTL = WDTPW + WDTHOLD; // Watchdog timer must be off.
-
-        //P1SEL &= ~BIT0; // Setting "P1SEL" 1st bit  as 0 selects GPIO mode of that pin.
-        P1DIR |= BIT0; // P1.0 set as output.
+      
+        P2DIR |= BIT0; // P1.0 set as output.
 
         while(1) // Infinite loop.
         {
             // Using XOR toggles the pin value and enables
-            // port pin P1.0 for output.
-            P1OUT ^= BIT0;
+            // port pin P2.0 for output.
+            P2OUT ^= BIT0;
             // Adding delay cycles to slows down the blinking of the LED.
             __delay_cycles(1000000);
         }
