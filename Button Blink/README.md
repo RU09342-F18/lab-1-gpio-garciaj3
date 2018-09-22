@@ -1,18 +1,17 @@
-# Button Blink
-Now that you have looked at blinking the LED from some built in delay, but what if we wanted to control the state of the LED by a button? You may think "Why would I need a Microcontroller to perform the job of a switch?". And that is where you come in. The bare minimum for this part of the lab is to essentially replicate a switch with your development board.
+## Preview
+This folder contains two files that shows how to button blink one LED from an MSP430G2553 and MSP430F5529 development board. The MSP430G2553 c.file is named switch1.c and the MSP430F5529 c.file is named switch2.c. In these files, each microcontroller has it specific pins that output the signals to turn on and off their LED using a switch, and are set at different delay cycles to compansate for the switch debouncing effect.
 
-# YOU NEED TO CREATE THE FOLLOWING FOLDERS
-* MSP430G2553
-* MSP(FILL IN THE PROCESSOR YOU ARE USING)
+### MSP430G2553
+**Description** : The purpose of this lab is to take the MSP430G2553 and make the Red LED blink on and off using a switch. The Red LED is tie with a special pin called "P1.0". This pin must be set as an output pin by setting a bit in a special register called "P1DIR". Setting the first bit from pin "P1DIR" as a value of 1 lets it become an output and setting the first bit from the pin as a bit value of 0 lets become an input. The switching is done by checking the bit value from the P1IN register using an if statement. Pressing the switch on the board toggles the Red LED with a delay; the delay compensates the switch debouncing effect.
 
-## README
-Remember to replace this README with your README once you are ready to submit. I would recommend either making a copy of this file or taking a screen shot. There might be a copy of all of these README's in a folder on the top level depending on the exercise. Make sure you talk about how your button is configured (momentary or continuous. Normally open or closed. Does the button press indicate when the LED should be on or off.)
+### MSP430F5529
+**Description** : The purpose of this lab is to take the MSP430F5529 and make the Red LED blink on and off using a switch. The Red LED is tie with a special pin called "P1.0". This pin must be set as an output pin by setting a bit in a special register called "P1DIR". Setting the first bit from pin "P1DIR" as a value of 1 lets it become an output and setting the first bit from the pin as a bit value of 0 lets become an input. The switching is done by checking the bit value from the P1IN register using an if statement. Pressing the switch on the board toggles the Red LED with a delay; the delay compensate the switch debouncing effect. For this microprocessor, the pullup resistor has to be enable so that the pin does not "float" when the button is not press.
 
-## Extra Work
-What can we do to make this a little bit more worthy of needing a microcontroller.
+### Continuous Switches 
+Both switches have delays too compansate the switch debouncing effect but do turn on continuously when the button is hold. Both LEDs from both controllers turn ON and OFF at speed of 2 secs.  
 
-### Button Based Speed Control
-Much like the UART controlled speed, what if you could cycle between speeds based on a button press? The speed could progress through a cycle of "Off-Slow-Medium-Fast" looping back when you hit the end.
+### Watchdog Timers
+Both are set to have their watchdog timers off so that the controllers do not reset everytime when they're looping. In fact, watchdog timers keeps track of any abnormal behavior from the program. If the program fails and it "crashes," then the watchdog timer will trigger a reset and force the program back to the beginning. This needs to be disable so that the function of the code works.
 
-### Color Change
-What if upon a button press, the LED which was blinking changed. Some of the development boards contain two LEDs, so you could swap between a Red and a Green LED.
+### While Loop
+Both controllers contain a while loop to infinitely make the LED blink after running the code. The loop contains the pin value of the LED and a XOR logic to toggle the pin value "high" and "low" or "ON" or "OFF".
