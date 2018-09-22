@@ -13,4 +13,5 @@ Both controllers contain a while loop to infinitely make the LED blink after run
 
 ## GIF
 **Breadboard with the MSP430G2553**
+
 ![](gif_1537582092.gif)
