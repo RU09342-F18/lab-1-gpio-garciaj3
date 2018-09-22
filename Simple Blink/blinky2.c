@@ -32,7 +32,7 @@
        */
         WDTCTL = WDTPW + WDTHOLD; // Watchdog timer must be off.
       
-        P2DIR |= BIT0; // P1.0 set as output.
+        P2DIR |= BIT0; // P2.0 set as output.
 
         while(1) // Infinite loop.
         {
